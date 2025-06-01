@@ -384,3 +384,25 @@ body {
   font-size: 30px; /* Puedes ajustar el tamaño según lo que necesites */
   text-decoration: none; /* Opcional, quita el subrayado */
 }
+
+.add-to-cart {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 8px;
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background 0.3s ease;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background: linear-gradient(135deg, #218838, #1e7e34);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
