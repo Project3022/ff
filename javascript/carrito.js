@@ -1,4 +1,4 @@
-// 👉 Menú lateral
+// 👉 Menú lateral (esto está bien)
 const menuToggle = document.getElementById('menu-toggle');
 const sideMenu = document.getElementById('side-menu');
 
@@ -6,7 +6,7 @@ menuToggle.addEventListener('click', () => {
   sideMenu.classList.toggle('open');
 });
 
-// 👉 Submenú (si existe .submenu-buttons)
+// 👉 Submenú funcional (opcional, solo si tienes .submenu-buttons)
 const submenuLinks = document.querySelectorAll('.submenu-buttons a');
 submenuLinks.forEach(link => {
   link.addEventListener('click', () => {
@@ -15,13 +15,15 @@ submenuLinks.forEach(link => {
   });
 });
 
-// 👉 Carrito
+// 👉 Elementos del carrito
 const carritoDiv = document.getElementById("carrito");
 const totalSpan = document.getElementById("total");
 const comprarBtn = document.getElementById("comprarBtn");
 
+// ✅ ⛔ Esto debe estar antes de cualquier uso de `cart`
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// 👉 Función principal para renderizar carrito
 function renderCart() {
   carritoDiv.innerHTML = "";
   let total = 0;
@@ -62,7 +64,7 @@ function renderCart() {
 
   mensaje += `*💰 Total: $${total.toFixed(2)}*%0A%0A📸 Ver factura con fotos aquí:%0A`;
 
-  // ⚠️ CAMBIA esta URL a la real de tu GitHub Pages
+  // ⛔ CAMBIA ESTA URL por la real de tu GitHub Pages
   const urlBase = "https://TUUSUARIO.github.io/TUREPO/factura.html";
   const facturaURL = `${urlBase}?productos=${encodeURIComponent(JSON.stringify(productosParaFactura))}&total=${total.toFixed(2)}`;
   mensaje += facturaURL;
@@ -81,5 +83,5 @@ function renderCart() {
   });
 }
 
-// ✅ Ejecutar al cargar
+// ✅ Ejecutar al cargar la página
 renderCart();
