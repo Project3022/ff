@@ -18,6 +18,33 @@ submenuLinks.forEach(link => {
 
 
 
+let mensaje = "*🧾 FACTURA DE COMPRA*%0A%0A";
+let productosParaFactura = [];
+
+cart.forEach((product, index) => {
+  mensaje += `*${index + 1}. ${product.name}*%0A`;
+  mensaje += `📏 Talla: ${product.size}%0A`;
+  mensaje += `💵 Precio: $${product.price.toFixed(2)}%0A%0A`;
+
+  total += product.price;
+
+  productosParaFactura.push({
+    name: product.name,
+    size: product.size,
+    price: product.price,
+    img: product.img
+  });
+});
+
+mensaje += `*💰 Total: $${total.toFixed(2)}*%0A%0A`;
+mensaje += `📸 Ver factura con fotos aquí:%0A`;
+
+// REEMPLAZA ESTA URL con tu URL real de GitHub Pages
+const urlBase = "https://tuusuario.github.io/tu-repo/factura.html";
+const facturaURL = `${urlBase}?productos=${encodeURIComponent(JSON.stringify(productosParaFactura))}&total=${total.toFixed(2)}`;
+mensaje += facturaURL;
+
+comprarBtn.href = `https://wa.me/8292308873?text=${mensaje}`;
 
 
 
