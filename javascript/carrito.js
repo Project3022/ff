@@ -1,5 +1,4 @@
-
-
+// 👉 Menú lateral
 const menuToggle = document.getElementById('menu-toggle');
 const sideMenu = document.getElementById('side-menu');
 
@@ -7,7 +6,7 @@ menuToggle.addEventListener('click', () => {
   sideMenu.classList.toggle('open');
 });
 
-// Submenú funcional si usas <a>
+// 👉 Submenú (si existe .submenu-buttons)
 const submenuLinks = document.querySelectorAll('.submenu-buttons a');
 submenuLinks.forEach(link => {
   link.addEventListener('click', () => {
@@ -16,52 +15,13 @@ submenuLinks.forEach(link => {
   });
 });
 
-
-
-let mensaje = "*🧾 FACTURA DE COMPRA*%0A%0A";
-let productosParaFactura = [];
-
-cart.forEach((product, index) => {
-  mensaje += `*${index + 1}. ${product.name}*%0A`;
-  mensaje += `📏 Talla: ${product.size}%0A`;
-  mensaje += `💵 Precio: $${product.price.toFixed(2)}%0A%0A`;
-
-  total += product.price;
-
-  productosParaFactura.push({
-    name: product.name,
-    size: product.size,
-    price: product.price,
-    img: product.img
-  });
-});
-
-mensaje += `*💰 Total: $${total.toFixed(2)}*%0A%0A`;
-mensaje += `📸 Ver factura con fotos aquí:%0A`;
-
-// REEMPLAZA ESTA URL con tu URL real de GitHub Pages
-const urlBase = "https://tuusuario.github.io/tu-repo/factura.html";
-const facturaURL = `${urlBase}?productos=${encodeURIComponent(JSON.stringify(productosParaFactura))}&total=${total.toFixed(2)}`;
-mensaje += facturaURL;
-
-comprarBtn.href = `https://wa.me/8292308873?text=${mensaje}`;
-
-
-
-
-
-
-
-
-// Variables principales
+// 👉 Carrito
 const carritoDiv = document.getElementById("carrito");
 const totalSpan = document.getElementById("total");
 const comprarBtn = document.getElementById("comprarBtn");
 
-// ⛔ Esta línea debe estar antes de usar `cart`
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Función para renderizar el carrito
 function renderCart() {
   carritoDiv.innerHTML = "";
   let total = 0;
@@ -101,7 +61,9 @@ function renderCart() {
   });
 
   mensaje += `*💰 Total: $${total.toFixed(2)}*%0A%0A📸 Ver factura con fotos aquí:%0A`;
-  const urlBase = "https://tuusuario.github.io/turepo/factura.html";
+
+  // ⚠️ CAMBIA esta URL a la real de tu GitHub Pages
+  const urlBase = "https://TUUSUARIO.github.io/TUREPO/factura.html";
   const facturaURL = `${urlBase}?productos=${encodeURIComponent(JSON.stringify(productosParaFactura))}&total=${total.toFixed(2)}`;
   mensaje += facturaURL;
 
@@ -119,5 +81,5 @@ function renderCart() {
   });
 }
 
-// Renderizar al cargar
+// ✅ Ejecutar al cargar
 renderCart();
