@@ -425,8 +425,7 @@ body {
 .talla {
   cursor: pointer;
   margin-right: 5px;
-  padding: 3px px;
-  padding-left: 0px;
+padding: auto;
   border: 1px solid #aaa;
   border-radius: 4px;
   user-select: none;
