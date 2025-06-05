@@ -425,10 +425,12 @@ body {
 .talla {
   cursor: pointer;
   margin-right: 5px;
-padding: auto;
+  padding: 1px 5px; /* Aumenta el padding para hacer los botones más grandes */
+  font-size: 15px;     /* Aumenta el tamaño de la fuente */
   border: 1px solid #aaa;
-  border-radius: 4px;
+  border-radius: 10px;
   user-select: none;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .talla.selected {
